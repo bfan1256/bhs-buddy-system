@@ -1,0 +1,45 @@
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+#sign-up-container {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.primary h1 {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.submit-btn {
+    margin: 15px auto;
+    display: block;
+}
+
+.account-exists {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 20px;
+}
+
+.account-exists a {
+    color: #1e87f0;
+}
+
+.spinner {
+    display: block;
+    text-align: center;
+}

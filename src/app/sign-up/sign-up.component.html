@@ -1,0 +1,74 @@
+<section id="main">
+  <div class="primary">
+    <h1>Blacksburg High School Buddy System</h1>
+    <div class="uk-card uk-card-default uk-card-body" *ngIf="loginType === 'sign-up'" id="sign-up-container">
+      <h3 class="uk-card-title">Sign Up</h3>
+      <form>
+        <fieldset class="uk-fieldset">
+          <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2@s">
+              <label class="uk-form-label" for="first-name">Name</label>
+              <input class="uk-input" type="text" [(ngModel)]="userForm.firstName" name="first-name" placeholder="Enter First Name"
+                required>
+            </div>
+            <div class="uk-width-1-2@s">
+              <label class="uk-form-label" for="last-name">Last Name</label>
+              <input class="uk-input" type="text" [(ngModel)]="userForm.lastName" name="last-name" placeholder="Enter Last Name"
+                required>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="email">Email</label>
+            <input class="uk-input" type="text" [(ngModel)]="userForm.email" name="email" placeholder="Enter MCPS Email"
+              required>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="password">Password</label>
+            <input class="uk-input" type="password" [(ngModel)]="password" name="password" placeholder="Enter Password"
+              required>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="grade">Grade Level</label>
+            <select class="uk-select" name="grade" [(ngModel)]="userForm.grade" required>
+              <option [ngValue]="'8th'">8th Grade</option>
+              <option [ngValue]="'Freshman'">Freshman</option>
+              <option [ngValue]="'Sophomore'">Sophomore</option>
+              <option [ngValue]="'Junior'">Junior</option>
+              <option [ngValue]="'Senior'">Senior</option>
+            </select>
+          </div>
+        </fieldset>
+        <button class="uk-button uk-button-primary uk-button-large submit-btn" *ngIf="!isLoading" (click)="createAccount()">Create
+          Account</button>
+        <div uk-spinner class="spinner" *ngIf="isLoading"></div>
+      </form>
+      <div class="account-exists">
+        Already have an account? <a class="uk-link-text" (click)="changeLoginType('sign-in')">Sign In</a>
+      </div>
+    </div>
+    <div class="uk-card uk-card-default uk-card-body" *ngIf="loginType === 'sign-in'" id="sign-in-container">
+      <h3 class="uk-card-title">Sign In</h3>
+      <form>
+        <fieldset class="uk-fieldset">
+          <div class="uk-margin">
+            <label class="uk-form-label" for="email">Email</label>
+            <input class="uk-input" type="text" [(ngModel)]="userForm.email" name="email" placeholder="Enter MCPS Email"
+              required>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="password">Password</label>
+            <input class="uk-input" type="password" [(ngModel)]="password" name=" password" placeholder="Enter Password"
+              required>
+          </div>
+        </fieldset>
+        <button class="uk-button uk-button-primary uk-button-large submit-btn" *ngIf="!isLoading" (click)="login()">Sign
+          In</button>
+        <div uk-spinner class="spinner" *ngIf="isLoading"></div>
+      </form>
+      <div class="account-exists">
+        Don't have an account? <a class="uk-link-text" (click)="changeLoginType('sign-up')">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.uk-card {
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
+}
+
+.uk-button {
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transition: all 0.3s;
+}
+
+.uk-button:hover {
+    box-shadow: none;
+    transition: all 0.3s;
+}
+
+* {
+    font-family: 'Raleway', sans-serif !important;
+}
