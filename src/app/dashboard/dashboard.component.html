@@ -6,7 +6,7 @@
       <h3 class="uk-card-title">Your Dashboard</h3>
       <hr class="uk-divider-icon">
 
-      <div class="assigned-questions" uk-filter="target: .questions">
+      <div class="assigned-questions" *ngIf="isQuestionAnswerer(user.grade)" uk-filter="target: .questions">
         <h4>Assigned Questions</h4>
         <ul class="uk-subnav uk-subnav-pill question-filters">
           <li class="uk-active" uk-filter-control><a href="#">All</a></li>
@@ -66,7 +66,7 @@
         </ul>
 
       </div>
-      <div class="questions-answered">
+      <div class="questions-answered" *ngIf="isQuestionAnswerer(user.grade)">
         <ul uk-accordion>
           <li>
             <a class="uk-accordion-title" href="#">Questions Answered</a>

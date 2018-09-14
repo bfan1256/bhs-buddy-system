@@ -23,6 +23,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  isQuestionAnswerer(grade: string): boolean {
+    grade = grade.toLowerCase();
+    return grade === 'junior' || grade === 'senior';
+  }
   signOut() {
     this._auth.signOut();
   }

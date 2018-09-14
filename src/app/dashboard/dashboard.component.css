@@ -7,19 +7,20 @@
     overflow: auto;
     resize: both;
     align-items: center;
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 }
 
 .primary {
-    margin-top: 600px;
+    position: absolute;
+    top: 100px;
     margin-bottom: 100px;
     width: 50%
 }
 
 @media screen and (max-width: 768px) {
     .primary {
-        margin-top: 700px;
+        /* margin-top: 700px; */
         width: 90%;
     }
 
