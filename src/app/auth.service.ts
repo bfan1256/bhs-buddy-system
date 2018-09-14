@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { EmailPasswordCredentials } from './interfaces/email-password.interface';
 import { User } from './interfaces/user.interface';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { authState } from 'rxfire/auth';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 @Injectable({
@@ -20,10 +21,10 @@ export class AuthService {
     private afs: AngularFirestore,
     private router: Router
   ) {
-    this.user = this.afAuth.authState.pipe(
+    this.user = authState(afAuth.auth).pipe(
       switchMap(user => {
         if (user) {
-          console.log('here');
+          this.router.navigateByUrl('/dashboard');
           return this.afs.doc<User>(`users/${ user.uid }`).valueChanges();
         } else {
           return of(null);
@@ -60,7 +61,9 @@ export class AuthService {
 
   emailLogin(credentials: EmailPasswordCredentials) {
     return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then(() => console.log('successfully logged in'))
+      .then(() => {
+        this.router.navigate([ '/dashboard' ]);
+      })
       .catch(error => console.log(error));
   }
 

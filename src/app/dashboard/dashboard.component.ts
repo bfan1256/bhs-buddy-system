@@ -1,15 +1,28 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { User } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  isLoading = true;
+  user: User;
+  constructor(private _auth: AuthService) {
+    _auth.user.subscribe((user: User) => {
+      this.isLoading = false;
+      this.user = user;
+    });
+  }
 
   ngOnInit() {
+  }
+
+  signOut() {
+    this._auth.signOut();
   }
 
 }

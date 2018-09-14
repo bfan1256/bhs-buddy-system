@@ -16,14 +16,6 @@
     padding-bottom: 15px;
 }
 
-.primary h1 {
-    color: white;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
 .submit-btn {
     margin: 15px auto;
     display: block;

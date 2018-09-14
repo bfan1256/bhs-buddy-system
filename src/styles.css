@@ -6,7 +6,7 @@
     box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
 }
 
-.uk-button {
+button.uk-button {
     border-radius: 50px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
     transition: all 0.3s;
@@ -19,4 +19,12 @@
 
 * {
     font-family: 'Raleway', sans-serif !important;
+}
+
+.primary h1 {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-align: center;
 }

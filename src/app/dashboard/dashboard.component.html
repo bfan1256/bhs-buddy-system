@@ -1,3 +1,161 @@
-<p>
-  dashboard works!
-</p>
+<section id="dashboard">
+  <div uk-spinner class="spinner" uk-spinner="ratio: 3" *ngIf="isLoading"></div>
+  <div class="primary" *ngIf="!isLoading">
+    <h1>Welcome Back {{user?.firstName}}</h1>
+    <div class="uk-card uk-card-default uk-card-body">
+      <h3 class="uk-card-title">Your Dashboard</h3>
+      <hr class="uk-divider-icon">
+
+      <div class="assigned-questions" uk-filter="target: .questions">
+        <h4>Assigned Questions</h4>
+        <ul class="uk-subnav uk-subnav-pill question-filters">
+          <li class="uk-active" uk-filter-control><a href="#">All</a></li>
+          <li uk-filter-control="[data-qtype='general']"><a href="#">General</a></li>
+          <li uk-filter-control="[data-qtype='homework']"><a href="#">Homework</a></li>
+          <li uk-filter-control="[data-qtype='classes']"><a href="#">Classes</a></li>
+        </ul>
+        <ul class="questions">
+          <li data-qtype="general">
+            <div class="question uk-card uk-card-default uk-card-body">
+              <div class="uk-card-badge uk-label">General</div>
+              <div class="question-header">Question #1</div>
+              <div class="question-author uk-text-meta">Author: Brandon Fan</div>
+              <div class="question-body">
+                <p>What does GPA Mean?</p>
+              </div>
+              <div class="uk-card-footer">
+                <a class="uk-button uk-button-text option uk-text-primary" href="#modal-answer" uk-toggle>Answer</a>
+                <a class="uk-button uk-button-text option uk-text-danger" href="#modal-differ" uk-toggle>Differ</a>
+                <a class="uk-button uk-button-text option uk-text-warning" href="#modal-inappropriate" uk-toggle>Flag
+                  as Inappropriate</a>
+              </div>
+            </div>
+          </li>
+          <li data-qtype="homework">
+            <div class="question uk-card uk-card-default uk-card-body">
+              <div class="uk-card-badge uk-label">Homework</div>
+              <div class="question-header">Question #2</div>
+              <div class="question-author uk-text-meta">Author: Howard Shi</div>
+              <div class="question-body">
+                <p>How do you solve this?</p>
+              </div>
+              <div class="uk-card-footer">
+                <a class="uk-button uk-button-text option uk-text-primary" href="#modal-answer" uk-toggle>Answer</a>
+                <a class="uk-button uk-button-text option uk-text-danger" href="#modal-differ" uk-toggle>Differ</a>
+                <a class="uk-button uk-button-text option uk-text-warning" href="#modal-inappropriate" uk-toggle>Flag
+                  as Inappropriate</a>
+              </div>
+            </div>
+          </li>
+          <li data-qtype="classes">
+            <div class="question uk-card uk-card-default uk-card-body">
+              <div class="uk-card-badge uk-label">Classes</div>
+              <div class="question-header">Question #3</div>
+              <div class="question-author uk-text-meta">Author: Andrew Thompson</div>
+              <div class="question-body">
+                <p>What classes are best to take?</p>
+              </div>
+              <div class="uk-card-footer">
+                <a class="uk-button uk-button-text option uk-text-primary" href="#modal-answer" uk-toggle>Answer</a>
+                <a class="uk-button uk-button-text option uk-text-danger" href="#modal-differ" uk-toggle>Differ</a>
+                <a class="uk-button uk-button-text option uk-text-warning" href="#modal-inappropriate" uk-toggle>Flag
+                  as Inappropriate</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+      <div class="questions-answered">
+        <ul uk-accordion>
+          <li>
+            <a class="uk-accordion-title" href="#">Questions Answered</a>
+            <div class="uk-accordion-content">
+              <ul class="uk-subnav uk-subnav-pill question-filters">
+                <li class="uk-active" uk-filter-control><a href="#">All</a></li>
+                <li uk-filter-control="[data-qtype='general']"><a href="#">General</a></li>
+                <li uk-filter-control="[data-qtype='homework']"><a href="#">Homework</a></li>
+                <li uk-filter-control="[data-qtype='classes']"><a href="#">Classes</a></li>
+              </ul>
+              <ul class="questions">
+                <li data-qtype="general">
+                  <div class="question uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-badge uk-label">General</div>
+                    <div class="question-header">Question #1</div>
+                    <div class="question-author uk-text-meta">Author: Brandon Fan</div>
+                    <div class="question-body">
+                      <p>What does GPA Mean?</p>
+                    </div>
+                    <div class="uk-card-footer">
+                      <a href="#" class="uk-button uk-button-text option uk-text-primary">Answer</a>
+                      <a href="#" class="uk-button uk-button-text option uk-text-danger">Differ</a>
+                      <a href="#" class="uk-button uk-button-text option uk-text-warning">Flag as Inappropriate</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <hr class="uk-divider-icon">
+      <button class="uk-button uk-button-danger uk-button-large submit-btn" (click)="signOut()">Sign Out</button>
+    </div>
+  </div>
+</section>
+
+
+
+<div id="modal-answer" class="uk-modal-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-margin-auto-vertical">
+    <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+    <div class="uk-modal-body">
+      <div>
+        <h4>Question:</h4>
+        <div class="question-author uk-text-meta">Author: Brandon Fan</div>
+        <div class="question-text">
+          What does GPA Mean?
+        </div>
+        <h4>Response:</h4>
+        <form class="response-form">
+          <fieldset class="uk-fieldset">
+            <div class="uk-margin response">
+              <textarea class="uk-textarea" rows="5" placeholder="Enter Response..."></textarea>
+            </div>
+            <button class="uk-button uk-button-primary uk-button-large submit-btn">Answer Question</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modal-differ" class="uk-modal-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-margin-auto-vertical">
+    <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      Differ Question
+    </div>
+    <div class="uk-modal-body">
+      Are you sure you want to differ this question?
+    </div>
+    <div class="uk-modal-footer uk-text-right">
+      <a class="uk-button-text confirm-differ" type="button">Yes</a>
+      <button class="uk-button uk-button-primary uk-modal-close" type="button">No</button>
+    </div>
+  </div>
+</div>
+<div id="modal-inappropriate" class="uk-modal-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-margin-auto-vertical">
+    <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      Flag As Inappropriate
+    </div>
+    <div class="uk-modal-body">
+      Are you sure you want to flag as inappropriate? This will be sent up to administration.
+    </div>
+    <div class="uk-modal-footer uk-text-right">
+      <a class="uk-button-text confirm-differ" type="button">Yes</a>
+      <button class="uk-button uk-button-primary uk-modal-close" type="button">No</button>
+    </div>
+  </div>
+</div>

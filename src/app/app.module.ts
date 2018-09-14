@@ -16,7 +16,6 @@ import { AuthService } from './auth.service';
 
 const APP_ROUTES: Routes = [
   { path: '', component: SignUpComponent },
-  // { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] }
   { path: 'dashboard', component: DashboardComponent }
 ];
 @NgModule({
