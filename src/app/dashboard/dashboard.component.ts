@@ -12,10 +12,12 @@ export class DashboardComponent implements OnInit {
   isLoading = true;
   user: User;
   constructor(private _auth: AuthService) {
-    _auth.user.subscribe((user: User) => {
-      this.isLoading = false;
-      this.user = user;
-    });
+    setTimeout(() => {
+      _auth.user.subscribe((user: User) => {
+        this.isLoading = false;
+        this.user = user;
+      });
+    }, 800);
   }
 
   ngOnInit() {
