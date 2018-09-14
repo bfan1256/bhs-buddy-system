@@ -8,6 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { authState } from 'rxfire/auth';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { questionsAssigned } from '../../functions/src/index';
 @Injectable({
   providedIn: 'root'
 })
@@ -43,6 +44,7 @@ export class AuthService {
       firstName: user.firstName,
       lastName: user.lastName,
       grade: user.grade,
+      questionsAssigned: user.questionsAssigned,
       photoURL: user.photoURL
     };
 

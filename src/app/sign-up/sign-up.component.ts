@@ -2,6 +2,7 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.interface';
 import { EmailPasswordCredentials } from '../interfaces/email-password.interface';
+import { questionsAssigned } from '../../../functions/src/index';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,6 +18,7 @@ export class SignUpComponent implements OnInit {
     email: '',
     grade: '',
     uid: '',
+    questionsAssigned: 0,
     photoURL: ''
   };
   loginType: 'sign-in' | 'sign-up' = 'sign-up';
